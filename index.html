@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bà Chủ Slay - Game Web</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .game-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            text-align: center;
+            width: 85%;
+            max-width: 380px;
+        }
+        h1 {
+            color: #d63384;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .score-board {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4A4A4A;
+            margin: 20px 0;
+            background: #fff0f5;
+            padding: 12px;
+            border-radius: 15px;
+            border: 2px dashed #ff69b4;
+        }
+        .btn-slay {
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+            color: white;
+            border: none;
+            padding: 16px 28px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+            transition: transform 0.1s;
+            width: 100%;
+        }
+        .btn-slay:active {
+            transform: scale(0.95);
+        }
+        .status {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #ff1493;
+            font-weight: bold;
+            min-height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-card">
+        <h1>👑 TIỆM BÀ CHỦ SLAY 👑</h1>
+        <p style="color: #666; font-size: 14px;">Chốt đơn thật chăm chỉ để làm giàu nhé!</p>
+        
+        <div class="score-board">
+            Doanh Thu: <span id="money" style="color: #d63384;">0</span> $
+        </div>
+
+        <button class="btn-slay" onclick="chotDon()">✨ Chốt Đơn Slay ✨</button>
+        <div class="status" id="status"></div>
+    </div>
+
+    <script>
+        let money = 0;
+        const messages = [
+            "Đã chốt 1 bộ váy kim tuyến! +50$",
+            "Khách khen đẹp quá chốt luôn! +50$",
+            "Chốt đơn túi xách xịn! +50$",
+            "Bà chủ Slay quá khách mua hết shop! +50$"
+        ];
+
+        function chotDon() {
+            money += 50;
+            document.getElementById('money').innerText = money;
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById('status').innerText = randomMsg;
+        }
+    </script>
+</body>
+</html>
